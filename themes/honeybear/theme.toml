@@ -1,0 +1,14 @@
+name = "HoneyBear"
+license = "AGPL-3.0-or-later"
+licenselink = "https://github.com/honeybearfolio/honeybearfolio.github.io/blob/main/LICENSE"
+description = "Custom theme for HoneyBear Folio website"
+homepage = "https://honeybearfolio.github.io"
+
+[author]
+  name = "HoneyBearFolio"
+  homepage = "https://github.com/honeybearfolio"
+
+[original]
+  name = "HoneyBear Folio Team"
+  homepage = "https://github.com/honeybearfolio"
+  repo = "https://github.com/honeybearfolio/honeybearfolio.github.io"

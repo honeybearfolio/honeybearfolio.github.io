@@ -1,0 +1,317 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="bg-gradient-hero py-20 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-fade-in">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 text-sm font-medium mb-6">
+          <span class="w-2 h-2 bg-honey-500 rounded-full mr-2 animate-pulse"></span>
+          Open Source & Privacy-First
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-bear-900 dark:text-bear-100 leading-tight mb-6">
+          Your Finances,<br>
+          <span class="text-gradient">Your Control</span>
+        </h1>
+        <p class="text-xl text-bear-600 dark:text-bear-400 mb-8 max-w-lg">
+          A beautiful, local-first personal finance app. Track net worth, manage investments, and plan for FIRE — all while keeping your data private and secure.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#download" class="btn-primary">
+            <i class="fas fa-download w-5 h-5 mr-2"></i>
+            Download Free
+          </a>
+          <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="btn-secondary">
+            <i class="fab fa-github w-5 h-5 mr-2"></i>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+      <div class="relative animate-slide-up">
+        <div class="absolute inset-0 bg-gradient-to-r from-honey-400/20 to-honey-600/20 blur-3xl rounded-full"></div>
+        <img src="/overview.png" alt="HoneyBear Folio Dashboard" class="relative rounded-2xl shadow-2xl border border-bear-200 dark:border-bear-800">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-20 lg:py-32 bg-gradient-to-b from-white to-bear-50 dark:from-bear-950 dark:to-bear-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 text-sm font-medium mb-6">
+        <i class="fas fa-star w-4 h-4 mr-2"></i>
+        Core Features
+      </div>
+      <h2 class="section-title mb-4">Everything You Need</h2>
+      <p class="section-subtitle max-w-3xl mx-auto">A comprehensive suite of powerful features designed to give you complete visibility and control over your financial life.</p>
+    </div>
+    
+    <!-- Primary Features -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <!-- Privacy First - Large Feature -->
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-honey-500 to-honey-600 p-8 lg:p-10 text-white shadow-2xl">
+        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur rounded-2xl mb-6">
+            <i class="fas fa-shield-alt w-8 h-8" style="font-size: 2rem;"></i>
+          </div>
+          <h3 class="text-2xl lg:text-3xl font-bold mb-4">Privacy First, Always</h3>
+          <p class="text-honey-100 text-lg leading-relaxed mb-6">Your financial data never leaves your device. Everything is stored locally in a SQLite database with no accounts, no cloud sync, and absolutely no tracking.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium">100% Local</span>
+            <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium">No Cloud</span>
+            <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium">Open Source</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rich Dashboards - Large Feature -->
+      <div class="relative overflow-hidden rounded-2xl bg-white dark:bg-bear-800 p-8 lg:p-10 shadow-xl border border-bear-200 dark:border-bear-700">
+        <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-32 h-32 bg-honey-400/10 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-honey-500 to-honey-600 rounded-2xl mb-6 shadow-lg">
+            <i class="fas fa-chart-line w-8 h-8 text-white" style="font-size: 2rem;"></i>
+          </div>
+          <h3 class="text-2xl lg:text-3xl font-bold text-bear-900 dark:text-bear-100 mb-4">Beautiful Analytics</h3>
+          <p class="text-bear-600 dark:text-bear-400 text-lg leading-relaxed mb-6">Visualize your financial journey with stunning interactive charts. Track net worth evolution, income vs expenses, category breakdowns, and asset allocation at a glance.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium">📊 Charts</span>
+            <span class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium">📈 Trends</span>
+            <span class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium">🎯 Insights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Secondary Features Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Portfolio Tracking -->
+      <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-4 shadow-md">
+            <i class="fas fa-briefcase w-5 h-5 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Portfolio Tracking</h3>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Real-time quotes from Yahoo Finance with historical prices and automatic cost basis calculation.</p>
+        </div>
+      </div>
+      
+      <!-- Multi-Currency -->
+      <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl mb-4 shadow-md">
+            <i class="fas fa-globe w-5 h-5 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Multi-Currency</h3>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Handle accounts in different currencies with automatic exchange rates and seamless conversion.</p>
+        </div>
+      </div>
+      
+      <!-- FIRE Calculator -->
+      <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl mb-4 shadow-md">
+            <i class="fas fa-fire w-5 h-5 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">FIRE Calculator</h3>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Plan your path to Financial Independence with projections based on your actual financial data.</p>
+        </div>
+      </div>
+      
+      <!-- Import & Export -->
+      <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mb-4 shadow-md">
+            <i class="fas fa-file-import w-5 h-5 text-white"></i>
+          </div>
+          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Import & Export</h3>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Flexible CSV, JSON, and XLSX imports with preview and mapping. Full database backup support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Screenshots Section -->
+<section id="screenshots" class="py-20 lg:py-32 bg-bear-50 dark:bg-bear-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="section-title">See It In Action</h2>
+      <p class="section-subtitle">A clean, modern interface designed to help you understand your finances at a glance.</p>
+    </div>
+    
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-honey-400/10 to-honey-600/10 blur-3xl rounded-full"></div>
+      <img src="/overview.png" alt="HoneyBear Folio Dashboard" class="relative rounded-2xl shadow-2xl border border-bear-200 dark:border-bear-700 mx-auto">
+    </div>
+  </div>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="py-20 lg:py-32 bg-gradient-to-br from-honey-500 to-honey-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control?</h2>
+      <p class="text-xl text-honey-100 mb-4 max-w-2xl mx-auto">
+        Download HoneyBear Folio v{{ .Site.Params.version }} for free and start managing your finances with complete privacy and control.
+      </p>
+      <p class="text-honey-200 text-sm">
+        Free and open source under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" class="underline hover:text-white">AGPL-3.0 license</a>
+      </p>
+    </div>
+    
+    <!-- Platform Categories -->
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      
+      <!-- Linux -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
+          <i class="fab fa-linux w-10 h-10" style="font-size: 2.5rem;"></i>
+          <div>
+            <h3 class="text-2xl font-bold">Linux</h3>
+            <p class="text-honey-200 text-sm">Multiple formats available</p>
+          </div>
+        </div>
+        
+        <div class="space-y-3">
+          <!-- AppImage -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              AppImage (Universal)
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.AppImage" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.AppImage" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          </div>
+          
+          <!-- Debian -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              Debian/Ubuntu (.deb)
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.deb" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64.deb" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          </div>
+          
+          <!-- RPM -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              Fedora/RHEL (.rpm)
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.x86_64.rpm" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.aarch64.rpm" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          </div>
+          
+          <!-- Flatpak -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              Flatpak
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio.flatpak" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-aarch64-unknown-linux-gnu.flatpak" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Windows -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
+          <i class="fab fa-windows w-10 h-10" style="font-size: 2.5rem;"></i>
+          <div>
+            <h3 class="text-2xl font-bold">Windows</h3>
+            <p class="text-honey-200 text-sm">Installer packages</p>
+          </div>
+        </div>
+        
+        <div class="space-y-3">
+          <!-- Windows x64 -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              Windows x64 Setup
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64-setup.exe" class="text-xs text-honey-200 hover:text-white block truncate">→ honeybear-folio_{{ .Site.Params.version }}_x64-setup.exe</a>
+          </div>
+          
+          <!-- Windows ARM64 -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              Windows ARM64 Setup
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64-setup.exe" class="text-xs text-honey-200 hover:text-white block truncate">→ honeybear-folio_{{ .Site.Params.version }}_arm64-setup.exe</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- macOS -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
+          <i class="fab fa-apple w-10 h-10" style="font-size: 2.5rem;"></i>
+          <div>
+            <h3 class="text-2xl font-bold">macOS</h3>
+            <p class="text-honey-200 text-sm">DMG & App bundles</p>
+          </div>
+        </div>
+        
+        <div class="space-y-3">
+          <!-- macOS Intel -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              macOS Intel
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64.dmg" class="text-xs text-honey-200 hover:text-white block truncate">→ DMG Installer</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_x64.app.tar.gz" class="text-xs text-honey-200 hover:text-white block truncate">→ App Bundle (.tar.gz)</a>
+          </div>
+          
+          <!-- macOS Apple Silicon -->
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-download w-4 h-4"></i>
+              macOS Apple Silicon
+            </div>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.dmg" class="text-xs text-honey-200 hover:text-white block truncate">→ DMG Installer</a>
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_aarch64.app.tar.gz" class="text-xs text-honey-200 hover:text-white block truncate">→ App Bundle (.tar.gz)</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="text-center">
+      <a href="{{ .Site.Params.github }}/releases/latest" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-honey-600 rounded-lg font-semibold hover:bg-honey-50 transition-colors">
+        <i class="fab fa-github w-5 h-5"></i>
+        View All Releases on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 lg:py-32 bg-white dark:bg-bear-950">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="section-title mb-6">Open Source & Community Driven</h2>
+    <p class="text-xl text-bear-600 dark:text-bear-400 mb-10 max-w-2xl mx-auto">
+      HoneyBear Folio is built in the open. Contributions, feedback, and feature requests are always welcome!
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="btn-primary">
+        <i class="fab fa-github w-5 h-5 mr-2"></i>
+        Star on GitHub
+      </a>
+      <a href="{{ .Site.Params.github }}/issues/new?template=feature_request.md" target="_blank" rel="noopener" class="btn-secondary">
+        <i class="fas fa-lightbulb w-5 h-5 mr-2"></i>
+        Request a Feature
+      </a>
+      <a href="{{ .Site.Params.github }}/issues/new?template=bug_report.md" target="_blank" rel="noopener" class="btn-secondary">
+        <i class="fas fa-bug w-5 h-5 mr-2"></i>
+        Report an Issue
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}

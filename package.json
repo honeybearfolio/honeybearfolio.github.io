@@ -1,0 +1,22 @@
+{
+  "name": "honeybearfolio.github.io",
+  "version": "1.0.0",
+  "description": "HoneyBear Folio project website built with Hugo and Tailwind CSS",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --disableFastRender",
+    "build": "hugo --minify",
+    "build:css": "bunx tailwindcss -i ./themes/honeybear/assets/css/main.css -o ./themes/honeybear/static/css/main.css --minify",
+    "clean": "rm -rf public resources"
+  },
+  "keywords": ["hugo", "tailwindcss", "personal-finance"],
+  "author": "HoneyBearFolio",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.18"
+  }
+}
