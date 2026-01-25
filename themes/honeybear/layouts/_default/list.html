@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="py-16 lg:py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-bear-900 dark:text-bear-100 mb-4">{{ .Title }}</h1>
+      {{ if .Params.description }}
+      <p class="text-xl text-bear-600 dark:text-bear-400">{{ .Params.description }}</p>
+      {{ end }}
+    </header>
+    
+    {{ if .Content }}
+    <div class="prose prose-lg dark:prose-invert prose-honey max-w-none mb-12">
+      {{ .Content }}
+    </div>
+    {{ end }}
+    
+    {{ if .Pages }}
+    <div class="space-y-6">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="block card hover:shadow-xl transition-shadow">
+        <h2 class="text-xl font-semibold text-bear-900 dark:text-bear-100 mb-2">{{ .Title }}</h2>
+        {{ if .Params.description }}
+        <p class="text-bear-600 dark:text-bear-400">{{ .Params.description }}</p>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

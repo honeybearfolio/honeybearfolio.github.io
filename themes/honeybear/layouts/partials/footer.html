@@ -1,0 +1,76 @@
+<footer class="bg-bear-100 dark:bg-bear-900 border-t border-bear-200 dark:border-bear-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center space-x-3 mb-4">
+          <img src="/icon.png" alt="HoneyBear Folio" class="w-10 h-10">
+          <span class="text-xl font-bold text-bear-900 dark:text-bear-100">HoneyBear <span class="text-honey-500">Folio</span></span>
+        </a>
+        <p class="text-bear-600 dark:text-bear-400 max-w-md">
+          A privacy-focused, local-first personal finance application. Track your net worth, manage investments, and plan for FIRE — all without sharing your data.
+        </p>
+      </div>
+      
+      <!-- Product -->
+      <div>
+        <h3 class="font-semibold text-bear-900 dark:text-bear-100 mb-4">Product</h3>
+        <ul class="space-y-2">
+          <li><a href="/#features" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors">Features</a></li>
+          <li><a href="/#screenshots" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors">Screenshots</a></li>
+          <li><a href="/#download" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors">Download</a></li>
+          <li><a href="{{ .Site.Params.github }}/releases" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors">Release Notes</a></li>
+        </ul>
+      </div>
+      
+      <!-- Community -->
+      <div>
+        <h3 class="font-semibold text-bear-900 dark:text-bear-100 mb-4">Community</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors flex items-center gap-2">
+              <i class="fab fa-github w-4 h-4"></i>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="{{ .Site.Params.github }}/issues/new?template=bug_report.md" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors flex items-center gap-2">
+              <i class="fas fa-bug w-4 h-4"></i>
+              Report an Issue
+            </a>
+          </li>
+          <li>
+            <a href="{{ .Site.Params.github }}/issues/new?template=feature_request.md" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors flex items-center gap-2">
+              <i class="fas fa-lightbulb w-4 h-4"></i>
+              Request a Feature
+            </a>
+          </li>
+          <li>
+            <a href="{{ .Site.Params.github }}/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors flex items-center gap-2">
+              <i class="fas fa-hands-helping w-4 h-4"></i>
+              Contributing
+            </a>
+          </li>
+          <li>
+            <a href="{{ .Site.Params.github }}/discussions" target="_blank" rel="noopener" class="text-bear-600 dark:text-bear-400 hover:text-honey-600 dark:hover:text-honey-400 transition-colors flex items-center gap-2">
+              <i class="fas fa-comments w-4 h-4"></i>
+              Discussions
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-bear-200 dark:border-bear-800">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-bear-500 dark:text-bear-500 text-sm text-center md:text-left">
+          © {{ now.Year }} HoneyBear Folio. Open source under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" class="text-honey-600 dark:text-honey-400 hover:underline font-medium">AGPL-3.0</a> license.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="{{ .Site.Params.github }}/blob/main/LICENSE" target="_blank" rel="noopener" class="text-bear-500 dark:text-bear-500 hover:text-honey-600 dark:hover:text-honey-400 text-sm transition-colors">License</a>
+          <span class="text-bear-500 dark:text-bear-500 text-sm">Made with 🍯</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
