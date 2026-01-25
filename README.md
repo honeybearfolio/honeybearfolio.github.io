@@ -43,7 +43,6 @@ The output will be in the `public/` directory.
 │   └── css/
 │       └── main.css          # Tailwind CSS source
 ├── content/
-│   └── docs/                 # Documentation pages
 ├── static/
 │   ├── icon.png             # App icon
 │   └── overview.png         # App screenshot
