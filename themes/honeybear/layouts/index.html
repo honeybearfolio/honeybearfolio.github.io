@@ -199,141 +199,193 @@
 <section id="download" class="py-20 lg:py-32 bg-gradient-to-br from-honey-500 to-honey-600 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control?</h2>
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur text-white text-sm font-medium mb-6">
+        <i class="fas fa-cloud-download-alt mr-2"></i>
+        Latest Version: v{{ .Site.Params.version }}
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Get HoneyBear Folio</h2>
       <p class="text-xl text-honey-100 mb-4 max-w-2xl mx-auto">
-        Download HoneyBear Folio v{{ .Site.Params.version }} for free and start managing your finances with complete privacy and control.
-      </p>
-      <p class="text-honey-200 text-sm">
-        Free and open source under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" class="underline hover:text-white">AGPL-3.0 license</a>
+        Choose your platform and start managing your finances with complete privacy.
       </p>
     </div>
     
     <!-- Platform Categories -->
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
+    <div class="flex flex-col gap-6 mb-16">
       
-      <!-- Linux -->
-      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
-          <i class="fab fa-linux w-10 h-10" style="font-size: 2.5rem;"></i>
-          <div>
-            <h3 class="text-2xl font-bold">Linux</h3>
-            <p class="text-honey-200 text-sm">Multiple formats available</p>
+      <!-- Desktop OS Grid Row 1 -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Windows -->
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-white/20 shadow-xl hover:bg-white/15 transition-colors">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shadow-inner">
+              <i class="fab fa-windows text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold">Windows</h3>
+            </div>
+          </div>
+          
+          <div class="grid gap-3">
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64-setup.exe" 
+               class="flex items-center justify-between px-5 py-3 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 rounded-xl text-sm font-bold transition-all hover:scale-[1.01] active:scale-95 border border-white/5 hover:border-white/20 group">
+              <div class="flex items-center gap-3">
+                <span class="bg-white/20 p-1.5 rounded-lg"><i class="fas fa-desktop text-white text-xs"></i></span>
+                <div>
+                  <div class="text-white leading-tight">Windows x64</div>
+                </div>
+              </div>
+              <i class="fas fa-download opacity-0 group-hover:opacity-100 transition-opacity text-white/80"></i>
+            </a>
+            
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64-setup.exe" 
+               class="flex items-center justify-between px-5 py-3 bg-white/5 hover:bg-white/10 rounded-xl text-sm font-medium transition-all hover:scale-[1.01] active:scale-95 border border-white/5 hover:border-white/20 group">
+              <div class="flex items-center gap-3">
+                <span class="bg-white/10 p-1.5 rounded-lg"><i class="fas fa-tablet-alt text-honey-200 text-xs"></i></span>
+                <div>
+                  <div class="text-honey-50 leading-tight">Windows ARM64</div>
+                </div>
+              </div>
+              <i class="fas fa-download opacity-0 group-hover:opacity-50 transition-opacity text-white/50"></i>
+            </a>
           </div>
         </div>
         
-        <div class="space-y-3">
+        <!-- macOS -->
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-white/20 shadow-xl hover:bg-white/15 transition-colors">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shadow-inner">
+              <i class="fab fa-apple text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold">macOS</h3>
+            </div>
+          </div>
+          
+          <div class="grid gap-3">
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.dmg" 
+               class="flex items-center justify-between px-5 py-3 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 rounded-xl text-sm font-bold transition-all hover:scale-[1.01] active:scale-95 border border-white/5 hover:border-white/20 group">
+              <div class="flex items-center gap-3">
+                <span class="bg-white/20 p-1.5 rounded-lg"><i class="fas fa-microchip text-white text-xs"></i></span>
+                <div>
+                  <div class="text-white leading-tight">Apple Silicon</div>
+                </div>
+              </div>
+              <i class="fas fa-download opacity-0 group-hover:opacity-100 transition-opacity text-white/80"></i>
+            </a>
+            
+            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64.dmg" 
+               class="flex items-center justify-between px-5 py-3 bg-white/5 hover:bg-white/10 rounded-xl text-sm font-medium transition-all hover:scale-[1.01] active:scale-95 border border-white/5 hover:border-white/20 group">
+              <div class="flex items-center gap-3">
+                <span class="bg-white/10 p-1.5 rounded-lg"><i class="fas fa-memory text-honey-200 text-xs"></i></span>
+                <div>
+                  <div class="text-honey-50 leading-tight">Intel Chip</div>
+                </div>
+              </div>
+              <i class="fas fa-download opacity-0 group-hover:opacity-50 transition-opacity text-white/50"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linux (Full Width) -->
+      <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-white/20 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 border-b border-white/10 pb-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shadow-inner">
+              <i class="fab fa-linux text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold">Linux</h3>
+            </div>
+          </div>
+          <div class="sm:ml-auto flex gap-2">
+               <span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-semibold text-honey-200 border border-white/5">x64</span>
+               <span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-semibold text-honey-200 border border-white/5">ARM64</span>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- AppImage -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              AppImage (Universal)
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.AppImage" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.AppImage" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          <div class="bg-black/20 rounded-xl p-4 border border-white/5">
+             <div class="flex items-center gap-2 mb-3 text-honey-100">
+                 <i class="fas fa-cube opacity-70"></i>
+                 <span class="font-bold text-sm">AppImage</span>
+             </div>
+             <div class="grid gap-2">
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.AppImage" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    x64
+                 </a>
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.AppImage" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    ARM64
+                 </a>
+             </div>
           </div>
-          
+
           <!-- Debian -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              Debian/Ubuntu (.deb)
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.deb" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64.deb" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          <div class="bg-black/20 rounded-xl p-4 border border-white/5">
+             <div class="flex items-center gap-2 mb-3 text-honey-100">
+                 <i class="fab fa-ubuntu opacity-70"></i>
+                 <span class="font-bold text-sm">Debian / Ubuntu</span>
+             </div>
+             <div class="grid gap-2">
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_amd64.deb" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    .deb (x64)
+                 </a>
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64.deb" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    .deb (ARM64)
+                 </a>
+             </div>
           </div>
-          
-          <!-- RPM -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              Fedora/RHEL (.rpm)
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.x86_64.rpm" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.aarch64.rpm" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+
+          <!-- Fedora -->
+          <div class="bg-black/20 rounded-xl p-4 border border-white/5">
+             <div class="flex items-center gap-2 mb-3 text-honey-100">
+                 <i class="fab fa-fedora opacity-70"></i>
+                 <span class="font-bold text-sm">Fedora / RHEL</span>
+             </div>
+             <div class="grid gap-2">
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.x86_64.rpm" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    .rpm (x64)
+                 </a>
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-{{ .Site.Params.version }}-1.aarch64.rpm" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    .rpm (ARM64)
+                 </a>
+             </div>
           </div>
-          
+
           <!-- Flatpak -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              Flatpak
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio.flatpak" class="text-xs text-honey-200 hover:text-white block truncate">→ x86_64</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-aarch64-unknown-linux-gnu.flatpak" class="text-xs text-honey-200 hover:text-white block truncate">→ ARM64</a>
+          <div class="bg-black/20 rounded-xl p-4 border border-white/5">
+             <div class="flex items-center gap-2 mb-3 text-honey-100">
+                 <i class="fas fa-box-open opacity-70"></i>
+                 <span class="font-bold text-sm">Flatpak</span>
+             </div>
+             <div class="grid gap-2">
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio.flatpak" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    Flatpak (x64)
+                 </a>
+                 <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio-aarch64-unknown-linux-gnu.flatpak" 
+                    class="block text-center py-2 px-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95">
+                    Flatpak (ARM64)
+                 </a>
+             </div>
           </div>
-        </div>
-      </div>
-      
-      <!-- Windows -->
-      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
-          <i class="fab fa-windows w-10 h-10" style="font-size: 2.5rem;"></i>
-          <div>
-            <h3 class="text-2xl font-bold">Windows</h3>
-            <p class="text-honey-200 text-sm">Installer packages</p>
-          </div>
-        </div>
-        
-        <div class="space-y-3">
-          <!-- Windows x64 -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              Windows x64 Setup
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64-setup.exe" class="text-xs text-honey-200 hover:text-white block truncate">→ honeybear-folio_{{ .Site.Params.version }}_x64-setup.exe</a>
-          </div>
-          
-          <!-- Windows ARM64 -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              Windows ARM64 Setup
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_arm64-setup.exe" class="text-xs text-honey-200 hover:text-white block truncate">→ honeybear-folio_{{ .Site.Params.version }}_arm64-setup.exe</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- macOS -->
-      <div class="bg-white/10 backdrop-blur rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
-          <i class="fab fa-apple w-10 h-10" style="font-size: 2.5rem;"></i>
-          <div>
-            <h3 class="text-2xl font-bold">macOS</h3>
-            <p class="text-honey-200 text-sm">DMG & App bundles</p>
-          </div>
-        </div>
-        
-        <div class="space-y-3">
-          <!-- macOS Intel -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              macOS Intel
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_x64.dmg" class="text-xs text-honey-200 hover:text-white block truncate">→ DMG Installer</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_x64.app.tar.gz" class="text-xs text-honey-200 hover:text-white block truncate">→ App Bundle (.tar.gz)</a>
-          </div>
-          
-          <!-- macOS Apple Silicon -->
-          <div class="bg-white/5 rounded-lg p-3">
-            <div class="text-sm font-semibold mb-2 flex items-center gap-2">
-              <i class="fas fa-download w-4 h-4"></i>
-              macOS Apple Silicon
-            </div>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_{{ .Site.Params.version }}_aarch64.dmg" class="text-xs text-honey-200 hover:text-white block truncate">→ DMG Installer</a>
-            <a href="{{ .Site.Params.github }}/releases/download/v{{ .Site.Params.version }}/honeybear-folio_aarch64.app.tar.gz" class="text-xs text-honey-200 hover:text-white block truncate">→ App Bundle (.tar.gz)</a>
-          </div>
+
         </div>
       </div>
       
     </div>
     
-    <div class="text-center">
-      <a href="{{ .Site.Params.github }}/releases/latest" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-honey-600 rounded-lg font-semibold hover:bg-honey-50 transition-colors">
-        <i class="fab fa-github w-5 h-5"></i>
-        View All Releases on GitHub
+    <div class="flex flex-col items-center gap-6">
+      <a href="{{ .Site.Params.github }}/releases/latest" class="inline-flex items-center gap-3 px-10 py-4 bg-white text-honey-600 rounded-2xl font-bold hover:bg-honey-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0">
+        <i class="fab fa-github text-xl"></i>
+        See release notes on GitHub
       </a>
     </div>
   </div>
