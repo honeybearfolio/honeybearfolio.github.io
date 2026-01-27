@@ -1,18 +1,14 @@
 {{ define "main" }}
 <!-- Hero Section -->
-<section class="bg-gradient-hero py-20 lg:py-32 overflow-hidden">
+<section class="bg-gradient-hero py-16 lg:py-24 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="animate-fade-in">
-        <div class="inline-flex items-center px-4 py-2 rounded-full bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 text-sm font-medium mb-6">
-          <span class="w-2 h-2 bg-honey-500 rounded-full mr-2 animate-pulse"></span>
-          Open Source & Privacy-First
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-bear-900 dark:text-bear-100 leading-tight mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-bear-900 dark:text-bear-100 leading-tight mb-6">
           Your Finances,<br>
           <span class="text-gradient">Your Control</span>
         </h1>
-        <p class="text-xl text-bear-600 dark:text-bear-400 mb-8 max-w-lg">
+        <p class="text-lg text-bear-600 dark:text-bear-400 mb-8 max-w-lg">
           A beautiful, local-first personal finance app. Track net worth, manage investments, and plan for FIRE — all while keeping your data private and secure.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
@@ -35,13 +31,9 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-20 lg:py-32 bg-gradient-to-b from-white to-bear-50 dark:from-bear-950 dark:to-bear-900">
+<section id="features" class="py-16 lg:py-24 bg-gradient-to-b from-white to-bear-50 dark:from-bear-950 dark:to-bear-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-20">
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 text-sm font-medium mb-6">
-        <i class="fas fa-star w-4 h-4 mr-2"></i>
-        Core Features
-      </div>
       <h2 class="section-title mb-4">Everything You Need</h2>
       <p class="section-subtitle max-w-3xl mx-auto">A comprehensive suite of powerful features designed to give you complete visibility and control over your financial life.</p>
     </div>
@@ -52,11 +44,13 @@
       <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-honey-500 to-honey-600 p-8 lg:p-10 text-white shadow-2xl">
         <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur rounded-2xl mb-6">
-            <i class="fas fa-shield-alt w-8 h-8" style="font-size: 2rem;"></i>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex-shrink-0">
+              <i class="fas fa-shield-alt w-8 h-8 text-[2rem]"></i>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-bold mb-0">Privacy First, Always</h3>
           </div>
-          <h3 class="text-2xl lg:text-3xl font-bold mb-4">Privacy First, Always</h3>
-          <p class="text-honey-100 text-lg leading-relaxed mb-6">Your financial data never leaves your device. Everything is stored locally in a SQLite database with no accounts, no cloud sync, and absolutely no tracking.</p>
+          <p class="text-honey-100 text-base leading-relaxed mb-6">Your financial data never leaves your device. Everything is stored locally in a SQLite database with no accounts, no cloud sync, and absolutely no tracking.</p>
           <div class="flex flex-wrap gap-2">
             <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium">100% Local</span>
             <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium">No Cloud</span>
@@ -69,11 +63,13 @@
       <div class="relative overflow-hidden rounded-2xl bg-white dark:bg-bear-800 p-8 lg:p-10 shadow-xl border border-bear-200 dark:border-bear-700">
         <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-32 h-32 bg-honey-400/10 rounded-full blur-3xl"></div>
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-honey-500 to-honey-600 rounded-2xl mb-6 shadow-lg">
-            <i class="fas fa-chart-line w-8 h-8 text-white" style="font-size: 2rem;"></i>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-honey-500 to-honey-600 rounded-2xl shadow-lg flex-shrink-0">
+              <i class="fas fa-chart-line w-8 h-8 text-white text-[2rem]"></i>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-bold text-bear-900 dark:text-bear-100 mb-0">Beautiful Analytics</h3>
           </div>
-          <h3 class="text-2xl lg:text-3xl font-bold text-bear-900 dark:text-bear-100 mb-4">Beautiful Analytics</h3>
-          <p class="text-bear-600 dark:text-bear-400 text-lg leading-relaxed mb-6">Visualize your financial journey with stunning interactive charts. Track net worth evolution, income vs expenses, category breakdowns, and asset allocation at a glance.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-base leading-relaxed mb-6">Visualize your financial journey with stunning interactive charts. Track net worth evolution, income vs expenses, category breakdowns, and asset allocation at a glance.</p>
           <div class="flex flex-wrap gap-2">
             <span class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium">📊 Charts</span>
             <span class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium">📈 Trends</span>
@@ -88,10 +84,12 @@
       <!-- Portfolio Tracking -->
       <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-4 shadow-md">
-            <i class="fas fa-briefcase w-5 h-5 text-white"></i>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-briefcase w-5 h-5 text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Portfolio Tracking</h3>
           </div>
-          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Portfolio Tracking</h3>
           <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Real-time quotes from Yahoo Finance with historical prices and automatic cost basis calculation.</p>
         </div>
       </div>
@@ -99,10 +97,12 @@
       <!-- Multi-Currency -->
       <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl mb-4 shadow-md">
-            <i class="fas fa-globe w-5 h-5 text-white"></i>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-globe w-5 h-5 text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Multi-Currency</h3>
           </div>
-          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Multi-Currency</h3>
           <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Handle accounts in different currencies with automatic exchange rates and seamless conversion.</p>
         </div>
       </div>
@@ -110,10 +110,12 @@
       <!-- FIRE Calculator -->
       <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl mb-4 shadow-md">
-            <i class="fas fa-fire w-5 h-5 text-white"></i>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-fire w-5 h-5 text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">FIRE Calculator</h3>
           </div>
-          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">FIRE Calculator</h3>
           <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Plan your path to Financial Independence with projections based on your actual financial data.</p>
         </div>
       </div>
@@ -121,10 +123,12 @@
       <!-- Import & Export -->
       <div class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mb-4 shadow-md">
-            <i class="fas fa-file-import w-5 h-5 text-white"></i>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-file-import w-5 h-5 text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Import & Export</h3>
           </div>
-          <h3 class="text-lg font-bold text-bear-900 dark:text-bear-100 mb-2">Import & Export</h3>
           <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Flexible CSV, JSON, and XLSX imports with preview and mapping. Full database backup support.</p>
         </div>
       </div>
@@ -133,7 +137,7 @@
 </section>
 
 <!-- Screenshots Section -->
-<section id="screenshots" class="py-20 lg:py-32 bg-bear-50 dark:bg-bear-900">
+<section id="screenshots" class="py-16 lg:py-24 bg-bear-50 dark:bg-bear-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="section-title">See It In Action</h2>
@@ -168,42 +172,16 @@
         </div>
       </div>
 
-      <script>
-        function changeActionScreenshot(btn, src) {
-            const mainImg = document.getElementById('action-screenshot');
-            
-            if (mainImg.getAttribute('src') !== src) {
-                mainImg.style.opacity = '0.5';
-                
-                setTimeout(() => {
-                    mainImg.src = src;
-                    mainImg.style.opacity = '1';
-                }, 200);
-
-                const buttons = document.querySelectorAll('.action-thumb');
-                buttons.forEach(b => {
-                    b.classList.remove('border-honey-500', 'ring-2', 'ring-honey-500/50', 'opacity-100');
-                    b.classList.add('border-transparent', 'opacity-70');
-                });
-
-                btn.classList.remove('border-transparent', 'opacity-70');
-                btn.classList.add('border-honey-500', 'ring-2', 'ring-honey-500/50', 'opacity-100');
-            }
-        }
-      </script>
     </div>
   </div>
 </section>
 
 <!-- Download Section -->
-<section id="download" class="py-20 lg:py-32 bg-gradient-to-br from-honey-500 to-honey-600 text-white">
+<section id="download" class="py-16 lg:py-24 bg-gradient-to-br from-honey-500 to-honey-600 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur text-white text-sm font-medium mb-6">
-        <i class="fas fa-cloud-download-alt mr-2"></i>
-        Latest Version: v{{ .Site.Params.version }}
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Get HoneyBear Folio</h2>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">Get HoneyBear Folio</h2>
+      <p class="text-honey-200 mb-6 font-medium">Latest Version: v{{ .Site.Params.version }}</p>
       <p class="text-xl text-honey-100 mb-4 max-w-2xl mx-auto">
         Choose your platform and start managing your finances with complete privacy.
       </p>
@@ -298,10 +276,6 @@
               <h3 class="text-2xl font-bold">Linux</h3>
             </div>
           </div>
-          <div class="sm:ml-auto flex gap-2">
-               <span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-semibold text-honey-200 border border-white/5">x64</span>
-               <span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-semibold text-honey-200 border border-white/5">ARM64</span>
-          </div>
         </div>
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -392,7 +366,7 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-20 lg:py-32 bg-white dark:bg-bear-950">
+<section class="py-16 lg:py-24 bg-white dark:bg-bear-950">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="section-title mb-6">Open Source & Community Driven</h2>
     <p class="text-xl text-bear-600 dark:text-bear-400 mb-10 max-w-2xl mx-auto">

@@ -4,14 +4,14 @@
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-3 group">
         <img src="/icon.png" alt="HoneyBear Folio" class="w-10 h-10 transition-transform group-hover:scale-110">
-        <span class="text-xl font-bold text-bear-900 dark:text-bear-100">HoneyBear <span class="text-honey-500">Folio</span></span>
+        <span class="text-lg font-bold text-bear-900 dark:text-bear-100">HoneyBear <span class="text-honey-500">Folio</span></span>
       </a>
       
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-6">
         {{ range .Site.Menus.main }}
           {{ if eq .Name "GitHub" }}
-            <a href="{{ .URL }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-bear-900 dark:bg-white text-white dark:text-bear-900 hover:bg-bear-800 dark:hover:bg-bear-100 transition-colors font-medium" target="_blank" rel="noopener">
+            <a href="{{ .URL }}" class="inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg bg-bear-900 dark:bg-white text-white dark:text-bear-900 hover:bg-bear-800 dark:hover:bg-bear-100 transition-colors font-medium" target="_blank" rel="noopener">
               <i class="fab fa-github w-4 h-4"></i>
               {{ .Name }}
             </a>
