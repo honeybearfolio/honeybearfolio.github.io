@@ -2,13 +2,13 @@
 <article class="py-16 lg:py-24">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <header class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-bear-900 dark:text-bear-100 mb-4">{{ .Title }}</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-bear-900 dark:text-bear-100 mb-4">{{ .Title }}</h1>
       {{ if .Params.description }}
-      <p class="text-xl text-bear-600 dark:text-bear-400">{{ .Params.description }}</p>
+      <p class="text-lg text-bear-600 dark:text-bear-400">{{ .Params.description }}</p>
       {{ end }}
     </header>
     
-    <div class="prose prose-lg dark:prose-invert prose-honey max-w-none">
+    <div class="prose dark:prose-invert prose-honey max-w-none">
       {{ .Content }}
     </div>
   </div>
