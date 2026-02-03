@@ -1,0 +1,57 @@
+{{ $currentPage := . }}
+<nav class="space-y-1">
+  {{ with .Site.GetPage "/docs" }}
+    
+    {{/* Iterate over all children (pages and sections) to respect Weight ordering */}}
+    {{ range .Pages }}
+      
+      {{ if .IsSection }}
+        {{/* Section Logic */}}
+        {{ $section := . }}
+        {{ $isActiveSection := or (eq $currentPage $section) ($currentPage.IsDescendant $section) }}
+        
+        <details class="group" {{ if $isActiveSection }}open{{ end }}>
+          <summary class="flex items-center justify-between px-2 py-2 text-sm font-semibold text-bear-900 dark:text-bear-100 cursor-pointer rounded-md hover:bg-bear-50 dark:hover:bg-bear-800/50 selection:bg-transparent [&::-webkit-details-marker]:hidden">
+            <span>{{ .Title }}</span>
+            <span class="transition-transform duration-200 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
+            </span>
+          </summary>
+          
+          <ul class="mt-1 ml-2 space-y-1 border-l border-bear-200 dark:border-bear-700/50 pl-2">
+            {{/* Section Overview Link */}}
+            <li>
+                <a href="{{ .RelPermalink }}" 
+                   class="block px-2 py-1.5 rounded-md text-sm transition-colors {{ if eq $currentPage . }}bg-bear-100 text-bear-900 font-medium dark:bg-bear-800/80 dark:text-bear-50{{ else }}text-bear-600 hover:text-bear-900 hover:bg-bear-50 dark:text-bear-400 dark:hover:text-bear-200 dark:hover:bg-bear-800/50{{ end }}">
+                  Overview
+                </a>
+            </li>
+
+            {{/* Pages within the section (only 1 level deep for now) */}}
+            {{ range .Pages }}
+              {{ if not .IsSection }}
+              <li>
+                <a href="{{ .RelPermalink }}" 
+                   class="block px-2 py-1.5 rounded-md text-sm transition-colors {{ if eq $currentPage . }}bg-bear-100 text-bear-900 font-medium dark:bg-bear-800/80 dark:text-bear-50{{ else }}text-bear-600 hover:text-bear-900 hover:bg-bear-50 dark:text-bear-400 dark:hover:text-bear-200 dark:hover:bg-bear-800/50{{ end }}">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </details>
+      
+      {{ else }}
+        {{/* Top Level Page Logic */}}
+        <a href="{{ .RelPermalink }}" 
+           class="block px-2 py-2 text-sm font-semibold rounded-md transition-colors mb-1 {{ if eq $currentPage . }}bg-bear-100 text-bear-900 dark:bg-bear-800 dark:text-bear-50{{ else }}text-bear-900 hover:bg-bear-50 dark:text-bear-100 dark:hover:bg-bear-800/50{{ end }}">
+          {{ .Title }}
+        </a>
+      {{ end }}
+
+    {{ end }}
+
+  {{ end }}
+</nav>
+
+
