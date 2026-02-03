@@ -3,6 +3,12 @@ languageCode = 'en-us'
 title = 'HoneyBear Folio'
 theme = 'honeybear'
 
+[[module.imports]]
+  path = "github.com/honeybearfolio/docs"
+  [[module.imports.mounts]]
+    source = "content"
+    target = "content/docs"
+
 [params]
   description = "A privacy-focused, local-first personal finance desktop application"
   author = "HoneyBearFolio"
@@ -32,6 +38,10 @@ theme = 'honeybear'
     name = "Download"
     url = "/#download"
     weight = 3
+  [[menu.main]]
+    name = "Docs"
+    url = "/docs/"
+    weight = 4
   [[menu.main]]
     name = "GitHub"
     url = "https://github.com/honeybearfolio/HoneyBear-Folio"

@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="lg:flex lg:gap-10">
+    
+    <!-- Sidebar (Desktop) -->
+    <aside class="hidden lg:block w-64 shrink-0">
+       <div class="sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto pb-8 pr-4">
+          {{ partial "docs-sidebar.html" . }}
+       </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="min-w-0 flex-1 py-8 lg:py-12">
+       
+       <!-- Mobile Sidebar Toggle -->
+       <div class="lg:hidden mb-8">
+           <details class="group bg-bear-50 dark:bg-bear-800/50 rounded-lg p-3 ring-1 ring-bear-900/5 dark:ring-bear-100/10">
+             <summary class="flex items-center justify-between font-medium cursor-pointer list-none text-bear-900 dark:text-bear-100 select-none [&::-webkit-details-marker]:hidden">
+               <span>Documentation Navigation</span>
+               <span class="transition-transform duration-200 group-open:rotate-180">
+                  <i class="fa-solid fa-chevron-down text-sm opacity-70"></i>
+               </span>
+             </summary>
+             <div class="mt-4 pt-2 border-t border-bear-200 dark:border-bear-700/50">
+                {{ partial "docs-sidebar.html" . }}
+             </div>
+           </details>
+       </div>
+
+       <article class="prose dark:prose-invert prose-honey max-w-none">
+          <h1 class="text-3xl font-bold tracking-tight text-bear-900 dark:text-bear-100 sm:text-4xl mb-8">{{ .Title }}</h1>
+          {{ .Content }}
+       </article>
+    </main>
+  </div>
+</div>
+{{ end }}
+
