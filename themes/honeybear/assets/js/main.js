@@ -8,6 +8,35 @@
   } else {
     document.documentElement.classList.remove('dark');
   }
+
+  // Setup event listeners once DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+      const darkModeToggle = document.getElementById('dark-mode-toggle');
+      if (darkModeToggle) {
+          darkModeToggle.addEventListener('click', toggleDarkMode);
+      }
+
+      const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
+      if (mobileDarkModeToggle) {
+          mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+      }
+      
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener('click', () => {
+              document.getElementById('mobile-menu').classList.toggle('hidden');
+          });
+      }
+
+      // Screenshot buttons
+      const screenshotBtns = document.querySelectorAll('.js-screenshot-btn');
+      screenshotBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+              const src = btn.getAttribute('data-src');
+              changeActionScreenshot(btn, src);
+          });
+      });
+  });
 })();
 
 function toggleDarkMode() {
