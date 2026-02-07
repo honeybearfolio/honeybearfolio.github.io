@@ -47,11 +47,34 @@ function toggleDarkMode() {
 
 function changeActionScreenshot(btn, src) {
     const mainImg = document.getElementById('action-screenshot');
+
+    // Security: validate image src before inserting into the DOM to avoid
+    // reinterpreting attacker-controlled text as HTML or loading unsafe URIs.
+    function isSafeImageSrc(u) {
+        if (!u) return false;
+        try {
+            const parsed = new URL(u, location.href);
+            const scheme = parsed.protocol; // includes ':'
+            if (scheme === 'http:' || scheme === 'https:') return true;
+            // allow only image data URIs (reject data:text/html, etc.)
+            if (scheme === 'data:') return /^data:image\//i.test(u);
+            return false;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    if (!isSafeImageSrc(src)) {
+        // don't set unsafe values; fail closed
+        console.warn('Blocked unsafe image src in changeActionScreenshot:', src);
+        return;
+    }
     
     if (mainImg.getAttribute('src') !== src) {
         mainImg.style.opacity = '0.5';
         
         setTimeout(() => {
+            // safe to assign because `src` was validated above
             mainImg.src = src;
             mainImg.style.opacity = '1';
         }, 200);
