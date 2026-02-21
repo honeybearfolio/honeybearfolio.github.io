@@ -144,50 +144,153 @@
   }
 }
 
-/* Prose styling for documentation */
+/* Prose styling for documentation — excludes .not-prose descendants */
 .prose {
-  @apply text-bear-700 dark:text-bear-300;
+  @apply text-bear-700 dark:text-bear-300 leading-7;
 }
 
-.prose h2 {
-  @apply text-2xl font-bold text-bear-900 dark:text-bear-100 mt-8 mb-4;
+.prose :where(h2):not(:where(.not-prose, .not-prose *)) {
+  @apply text-2xl font-bold text-bear-900 dark:text-bear-100 mt-10 mb-4 pb-2 border-b border-bear-200 dark:border-bear-800 scroll-mt-20;
 }
 
-.prose h3 {
-  @apply text-xl font-semibold text-bear-900 dark:text-bear-100 mt-6 mb-3;
+.prose :where(h3):not(:where(.not-prose, .not-prose *)) {
+  @apply text-xl font-semibold text-bear-900 dark:text-bear-100 mt-8 mb-3 scroll-mt-20;
 }
 
-.prose p {
-  @apply mb-4 leading-relaxed;
+.prose :where(h4):not(:where(.not-prose, .not-prose *)) {
+  @apply text-base font-semibold text-bear-900 dark:text-bear-100 mt-6 mb-2 scroll-mt-20;
 }
 
-.prose ul,
-.prose ol {
+.prose :where(p):not(:where(.not-prose, .not-prose *)) {
+  @apply mb-4 leading-7;
+}
+
+.prose :where(ul, ol):not(:where(.not-prose, .not-prose *)) {
   @apply mb-4 pl-6;
 }
 
-.prose li {
-  @apply mb-2;
+.prose :where(ul):not(:where(.not-prose, .not-prose *)) {
+  @apply list-disc;
 }
 
-.prose a {
-  @apply text-honey-600 hover:text-honey-700 dark:text-honey-400 dark:hover:text-honey-300 underline;
+.prose :where(ol):not(:where(.not-prose, .not-prose *)) {
+  @apply list-decimal;
 }
 
-.prose code {
-  @apply bg-bear-100 dark:bg-bear-800 px-1.5 py-0.5 rounded text-sm font-mono;
+.prose :where(li):not(:where(.not-prose, .not-prose *)) {
+  @apply mb-2 leading-7;
 }
 
-.prose pre {
-  @apply bg-bear-900 dark:bg-bear-950 text-bear-100 p-4 rounded-lg overflow-x-auto mb-4;
+.prose :where(li > ul, li > ol):not(:where(.not-prose, .not-prose *)) {
+  @apply mt-2;
 }
 
-.prose pre code {
-  @apply bg-transparent p-0;
+.prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  @apply text-honey-600 hover:text-honey-700 dark:text-honey-400 dark:hover:text-honey-300 underline decoration-honey-300/50 dark:decoration-honey-600/50 underline-offset-2 hover:decoration-honey-500 transition-colors;
 }
 
-.prose strong {
+.prose :where(code):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-bear-100 dark:bg-bear-800 px-1.5 py-0.5 rounded text-[0.875em] font-mono text-bear-800 dark:text-bear-200 border border-bear-200/60 dark:border-bear-700/40;
+}
+
+.prose :where(pre):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-bear-900 dark:bg-bear-950 text-bear-100 p-4 rounded-xl overflow-x-auto mb-6 border border-bear-800 dark:border-bear-800 shadow-sm;
+}
+
+.prose :where(pre code):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-transparent p-0 border-0 text-sm text-inherit;
+}
+
+.prose :where(strong):not(:where(.not-prose, .not-prose *)) {
   @apply font-semibold text-bear-900 dark:text-bear-100;
+}
+
+.prose :where(blockquote):not(:where(.not-prose, .not-prose *)) {
+  @apply border-l-4 border-honey-400 dark:border-honey-600 pl-4 py-1 my-6 text-bear-600 dark:text-bear-400 bg-honey-50/50 dark:bg-honey-950/20 rounded-r-lg pr-4;
+}
+
+.prose :where(blockquote p):not(:where(.not-prose, .not-prose *)) {
+  @apply mb-0;
+}
+
+.prose :where(hr):not(:where(.not-prose, .not-prose *)) {
+  @apply my-8 border-bear-200 dark:border-bear-800;
+}
+
+.prose :where(table):not(:where(.not-prose, .not-prose *)) {
+  @apply w-full text-sm my-6 overflow-hidden rounded-lg;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.prose :where(thead):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-bear-50 dark:bg-bear-800/80;
+}
+
+.prose :where(th):not(:where(.not-prose, .not-prose *)) {
+  @apply text-left text-xs font-semibold uppercase tracking-wider text-bear-600 dark:text-bear-300 px-4 py-3 border-b border-bear-200 dark:border-bear-700;
+}
+
+.prose :where(td):not(:where(.not-prose, .not-prose *)) {
+  @apply px-4 py-3 border-b border-bear-100 dark:border-bear-800;
+}
+
+.prose :where(tbody tr):not(:where(.not-prose, .not-prose *)):hover {
+  @apply bg-bear-50/50 dark:bg-bear-800/30;
+}
+
+.prose :where(img):not(:where(.not-prose, .not-prose *)) {
+  @apply rounded-xl shadow-md my-6 border border-bear-200 dark:border-bear-700;
+}
+
+/* Table of Contents styling */
+.toc-content nav > ul {
+  @apply space-y-0.5 list-none pl-0;
+}
+
+.toc-content nav > ul > li {
+  @apply mb-0;
+}
+
+.toc-content nav > ul > li > a {
+  @apply block py-1.5 px-2 text-[13px] text-bear-500 dark:text-bear-400 rounded-md no-underline border-0
+         hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100 dark:hover:bg-bear-800/60
+         transition-all duration-150;
+}
+
+.toc-content nav > ul > li > a.toc-active {
+  @apply text-honey-600 dark:text-honey-400 font-medium bg-honey-50/60 dark:bg-honey-950/30;
+}
+
+.toc-content nav > ul > li > ul {
+  @apply pl-3 border-l border-bear-200 dark:border-bear-800 ml-2 list-none space-y-0.5;
+}
+
+.toc-content nav > ul > li > ul > li > a {
+  @apply block py-1 px-2 text-xs text-bear-400 dark:text-bear-500 rounded-md no-underline border-0
+         hover:text-bear-700 dark:hover:text-bear-300 hover:bg-bear-100/60 dark:hover:bg-bear-800/40
+         transition-all duration-150;
+}
+
+.toc-content nav > ul > li > ul > li > a.toc-active {
+  @apply text-honey-600 dark:text-honey-400 font-medium;
+}
+
+/* Docs scrollbar */
+.docs-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.docs-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.docs-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-bear-300 dark:bg-bear-700 rounded-full;
+}
+
+.docs-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-bear-400 dark:bg-bear-600;
 }
 
 /* Custom scrollbar */

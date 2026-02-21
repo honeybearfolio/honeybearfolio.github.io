@@ -1,0 +1,31 @@
+{{/* Breadcrumb navigation for docs pages */}}
+{{ $ancestors := .Ancestors.Reverse }}
+<nav aria-label="Breadcrumb" class="docs-breadcrumbs">
+  <ol class="flex items-center flex-wrap gap-1 text-sm text-bear-500 dark:text-bear-400">
+    <li class="flex items-center">
+      <a href="/" class="hover:text-honey-600 dark:hover:text-honey-400 transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </li>
+    {{ range $ancestors }}
+    {{ if not .IsHome }}
+    <li class="flex items-center">
+      <svg class="w-3.5 h-3.5 mx-1 opacity-40" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
+      </svg>
+      <a href="{{ .RelPermalink }}" class="hover:text-honey-600 dark:hover:text-honey-400 transition-colors">
+        {{ .Title }}
+      </a>
+    </li>
+    {{ end }}
+    {{ end }}
+    <li class="flex items-center">
+      <svg class="w-3.5 h-3.5 mx-1 opacity-40" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
+      </svg>
+      <span class="font-medium text-bear-900 dark:text-bear-100">{{ .Title }}</span>
+    </li>
+  </ol>
+</nav>
