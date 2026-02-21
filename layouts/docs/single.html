@@ -1,38 +1,81 @@
 {{ define "main" }}
-<div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="lg:flex lg:gap-10">
-    
+<div class="docs-layout max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="lg:flex">
+
     <!-- Sidebar (Desktop) -->
-    <aside class="hidden lg:block w-64 shrink-0">
-       <div class="sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto pb-8 pr-4">
-          {{ partial "docs-sidebar.html" . }}
-       </div>
+    <aside class="hidden lg:block w-72 shrink-0 border-r border-bear-200 dark:border-bear-800">
+      <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-6 docs-scrollbar">
+        {{ partial "docs-sidebar.html" . }}
+      </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="min-w-0 flex-1 py-8 lg:py-12">
-       
-       <!-- Mobile Sidebar Toggle -->
-       <div class="lg:hidden mb-8">
-           <details class="group bg-bear-50 dark:bg-bear-800/50 rounded-lg p-3 ring-1 ring-bear-900/5 dark:ring-bear-100/10">
-             <summary class="flex items-center justify-between font-medium cursor-pointer list-none text-bear-900 dark:text-bear-100 select-none [&::-webkit-details-marker]:hidden">
-               <span>Documentation Navigation</span>
-               <span class="transition-transform duration-200 group-open:rotate-180">
-                  <i class="fa-solid fa-chevron-down text-sm opacity-70"></i>
-               </span>
-             </summary>
-             <div class="mt-4 pt-2 border-t border-bear-200 dark:border-bear-700/50">
-                {{ partial "docs-sidebar.html" . }}
-             </div>
-           </details>
-       </div>
+    <!-- Mobile Sidebar Overlay -->
+    <div id="docs-mobile-sidebar-overlay" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm hidden lg:hidden" aria-hidden="true"></div>
+    <aside id="docs-mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-bear-950 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-bear-200 dark:border-bear-800">
+        <span class="text-sm font-semibold text-bear-900 dark:text-bear-100">Navigation</span>
+        <button id="docs-mobile-sidebar-close" class="p-1.5 rounded-lg text-bear-500 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800 transition-colors" aria-label="Close navigation">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="p-5">
+        {{ partial "docs-sidebar.html" . }}
+      </div>
+    </aside>
 
-       <article class="prose dark:prose-invert prose-honey max-w-none">
-          <h1 class="text-3xl font-bold tracking-tight text-bear-900 dark:text-bear-100 sm:text-4xl mb-8">{{ .Title }}</h1>
+    <!-- Main Content Area -->
+    <div class="min-w-0 flex-1 lg:flex">
+
+      <!-- Content -->
+      <main class="min-w-0 flex-1 py-8 lg:py-10 lg:px-12 xl:px-16">
+
+        <!-- Mobile nav button + Breadcrumbs -->
+        <div class="flex items-center gap-3 mb-8">
+          <button id="docs-mobile-sidebar-toggle"
+                  class="lg:hidden inline-flex items-center justify-center p-2 -ml-2 rounded-lg text-bear-500 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800 transition-colors"
+                  aria-label="Open navigation">
+            <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          {{ partial "docs-breadcrumbs.html" . }}
+        </div>
+
+        <article class="prose dark:prose-invert prose-honey max-w-none">
+          <h1 class="!text-3xl !font-extrabold !tracking-tight text-bear-900 dark:text-bear-100 sm:!text-4xl !mb-2">{{ .Title }}</h1>
+          {{ with .Params.description }}
+          <p class="!text-lg !text-bear-500 dark:!text-bear-400 !mt-0 !mb-8 !leading-relaxed">{{ . }}</p>
+          {{ end }}
+
+          {{ if .Params.lastmod }}
+          <div class="!text-xs !text-bear-400 dark:!text-bear-500 !mb-8 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm.5 4.75a.75.75 0 00-1.5 0v3.5a.75.75 0 00.37.65l2.5 1.5a.75.75 0 10.76-1.3L8.5 7.82V4.75z"/></svg>
+            Updated {{ .Params.lastmod | time.Format "January 2, 2006" }}
+          </div>
+          {{ end }}
+
+          <div class="xl:hidden mb-8">
+            {{ partial "docs-toc.html" . }}
+          </div>
+
           {{ .Content }}
-       </article>
-    </main>
-    
+        </article>
+
+        <div class="not-prose">
+          {{ partial "docs-prev-next.html" . }}
+        </div>
+      </main>
+
+      <!-- Table of Contents (Desktop) -->
+      <aside class="hidden xl:block w-56 shrink-0">
+        <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-10 pl-4 docs-scrollbar">
+          {{ partial "docs-toc.html" . }}
+        </div>
+      </aside>
+
+    </div>
   </div>
 </div>
 {{ end }}

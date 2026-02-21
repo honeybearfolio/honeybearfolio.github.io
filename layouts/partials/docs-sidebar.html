@@ -1,56 +1,68 @@
 {{ $currentPage := . }}
-<nav class="space-y-1">
+<nav class="docs-sidebar-nav space-y-0.5" aria-label="Documentation">
+
+  {{/* Docs home link */}}
   {{ with .Site.GetPage "/docs" }}
-    
-    {{/* Iterate over all children (pages and sections) to respect Weight ordering */}}
-    {{ range .Pages }}
-      
-      {{ if .IsSection }}
-        {{/* Section Logic */}}
-        {{ $section := . }}
-        {{ $isActiveSection := or (eq $currentPage $section) ($currentPage.IsDescendant $section) }}
-        
-        <details class="group" {{ if $isActiveSection }}open{{ end }}>
-          <summary class="flex items-center justify-between px-2 py-2 text-sm font-semibold text-bear-900 dark:text-bear-100 cursor-pointer rounded-md hover:bg-bear-50 dark:hover:bg-bear-800/50 selection:bg-transparent [&::-webkit-details-marker]:hidden">
-            <span>{{ .Title }}</span>
-            <span class="transition-transform duration-200 group-open:rotate-180">
-              <i class="fa-solid fa-chevron-down text-xs opacity-50"></i>
-            </span>
-          </summary>
-          
-          <ul class="mt-1 ml-2 space-y-1 border-l border-bear-200 dark:border-bear-700/50 pl-2">
-            {{/* Section Overview Link */}}
+  <a href="{{ .RelPermalink }}"
+     class="group flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-lg transition-all duration-150 mb-3
+            {{ if eq $currentPage . }}text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40{{ else }}text-bear-900 dark:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60{{ end }}">
+    <i class="fa-solid fa-book text-xs w-4 text-center opacity-60 group-hover:opacity-100 transition-opacity"></i>
+    Documentation
+  </a>
+
+  <div class="border-t border-bear-200 dark:border-bear-800 mb-3"></div>
+
+  {{ range .Pages }}
+
+    {{ if .IsSection }}
+      {{ $section := . }}
+      {{ $isActiveSection := or (eq $currentPage $section) ($currentPage.IsDescendant $section) }}
+
+      <details class="group/section sidebar-section" {{ if $isActiveSection }}open{{ end }}>
+        <summary class="flex items-center justify-between px-3 py-2 text-[13px] font-semibold uppercase tracking-wider cursor-pointer rounded-lg
+                        text-bear-500 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100 dark:hover:bg-bear-800/60
+                        transition-all duration-150 select-none [&::-webkit-details-marker]:hidden">
+          <span>{{ .Title }}</span>
+          <svg class="w-3.5 h-3.5 shrink-0 opacity-50 transition-transform duration-200 group-open/section:rotate-90" 
+               viewBox="0 0 16 16" fill="currentColor">
+            <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
+          </svg>
+        </summary>
+
+        <ul class="mt-0.5 ml-3 space-y-0.5 border-l-2 border-bear-200 dark:border-bear-700/60 pl-0">
+          {{/* Section overview */}}
+          <li>
+            <a href="{{ .RelPermalink }}"
+               class="relative block pl-4 pr-3 py-1.5 text-sm rounded-r-lg transition-all duration-150
+                      {{ if eq $currentPage . }}text-honey-700 dark:text-honey-300 font-medium bg-honey-50/80 dark:bg-honey-950/30 before:absolute before:left-[-2px] before:top-1 before:bottom-1 before:w-0.5 before:bg-honey-500 before:rounded-full{{ else }}text-bear-600 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100/80 dark:hover:bg-bear-800/40{{ end }}">
+              Overview
+            </a>
+          </li>
+
+          {{ range .Pages }}
+            {{ if not .IsSection }}
             <li>
-                <a href="{{ .RelPermalink }}" 
-                   class="block px-2 py-1.5 rounded-md text-sm transition-colors {{ if eq $currentPage . }}bg-bear-100 text-bear-900 font-medium dark:bg-bear-800/80 dark:text-bear-50{{ else }}text-bear-600 hover:text-bear-900 hover:bg-bear-50 dark:text-bear-400 dark:hover:text-bear-200 dark:hover:bg-bear-800/50{{ end }}">
-                  Overview
-                </a>
+              <a href="{{ .RelPermalink }}"
+                 class="relative block pl-4 pr-3 py-1.5 text-sm rounded-r-lg transition-all duration-150
+                        {{ if eq $currentPage . }}text-honey-700 dark:text-honey-300 font-medium bg-honey-50/80 dark:bg-honey-950/30 before:absolute before:left-[-2px] before:top-1 before:bottom-1 before:w-0.5 before:bg-honey-500 before:rounded-full{{ else }}text-bear-600 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100/80 dark:hover:bg-bear-800/40{{ end }}">
+                {{ .Title }}
+              </a>
             </li>
-
-            {{/* Pages within the section (only 1 level deep for now) */}}
-            {{ range .Pages }}
-              {{ if not .IsSection }}
-              <li>
-                <a href="{{ .RelPermalink }}" 
-                   class="block px-2 py-1.5 rounded-md text-sm transition-colors {{ if eq $currentPage . }}bg-bear-100 text-bear-900 font-medium dark:bg-bear-800/80 dark:text-bear-50{{ else }}text-bear-600 hover:text-bear-900 hover:bg-bear-50 dark:text-bear-400 dark:hover:text-bear-200 dark:hover:bg-bear-800/50{{ end }}">
-                  {{ .Title }}
-                </a>
-              </li>
-              {{ end }}
             {{ end }}
-          </ul>
-        </details>
-      
-      {{ else }}
-        {{/* Top Level Page Logic */}}
-        <a href="{{ .RelPermalink }}" 
-           class="block px-2 py-2 text-sm font-semibold rounded-md transition-colors mb-1 {{ if eq $currentPage . }}bg-bear-100 text-bear-900 dark:bg-bear-800 dark:text-bear-50{{ else }}text-bear-900 hover:bg-bear-50 dark:text-bear-100 dark:hover:bg-bear-800/50{{ end }}">
-          {{ .Title }}
-        </a>
-      {{ end }}
+          {{ end }}
+        </ul>
+      </details>
 
+    {{ else }}
+      {{/* Top-level page */}}
+      <a href="{{ .RelPermalink }}"
+         class="group flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150
+                {{ if eq $currentPage . }}text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40{{ else }}text-bear-700 dark:text-bear-300 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60{{ end }}">
+        {{ .Title }}
+      </a>
     {{ end }}
 
+  {{ end }}
   {{ end }}
 </nav>
 
