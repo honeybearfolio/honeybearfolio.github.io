@@ -173,7 +173,7 @@
 }
 
 .prose :where(pre code):not(:where(.not-prose, .not-prose *)) {
-  @apply bg-transparent p-0 border-0 text-sm;
+  @apply bg-transparent p-0 border-0 text-sm text-inherit;
 }
 
 .prose :where(strong):not(:where(.not-prose, .not-prose *)) {
