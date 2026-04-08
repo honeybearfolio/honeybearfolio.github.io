@@ -1,5 +1,7 @@
 # HoneyBear Folio Website
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/BernatBC)
+
 The official website for [HoneyBear Folio](https://github.com/honeybearfolio/HoneyBear-Folio), a privacy-focused personal finance desktop application.
 
 ## Tech Stack
