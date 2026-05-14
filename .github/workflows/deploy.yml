@@ -34,6 +34,8 @@ jobs:
           extended: true
 
       - name: Build
+        env:
+          NODE_OPTIONS: ""
         run: hugo --minify
 
       - name: Upload artifact
