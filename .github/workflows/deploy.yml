@@ -21,24 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: bun install
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.160.1'
           extended: true
 
       - name: Build
         run: hugo --minify
-        env:
-          NODE_OPTIONS: ""
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
