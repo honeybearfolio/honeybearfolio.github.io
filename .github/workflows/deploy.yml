@@ -25,15 +25,9 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: "22"
-          cache: "npm"
 
       - name: Install dependencies
         run: npm install --package-lock=false --include=optional --no-audit --no-fund
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
