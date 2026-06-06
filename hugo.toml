@@ -16,6 +16,7 @@ theme = 'honeybear'
   description = "A privacy-focused, local-first personal finance desktop application"
   author = "HoneyBearFolio"
   github = "https://github.com/honeybearfolio/HoneyBear-Folio"
+  buymeacoffee = "https://www.buymeacoffee.com/BernatBC"
   license = "AGPL-3.0"
   version = "0.5.0"
 
