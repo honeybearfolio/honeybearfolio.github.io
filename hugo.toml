@@ -26,6 +26,7 @@ theme = 'honeybear'
 
 [[module.imports]]
   path = "github.com/honeybearfolio/docs"
+  version = "v1.0.1"
   [[module.imports.mounts]]
     source = "content"
     target = "content/docs"
@@ -36,7 +37,6 @@ theme = 'honeybear'
   github = "https://github.com/honeybearfolio/HoneyBear-Folio"
   buymeacoffee = "https://www.buymeacoffee.com/BernatBC"
   license = "AGPL-3.0"
-  version = "1.0.1"
 
 [markup]
   [markup.goldmark]
