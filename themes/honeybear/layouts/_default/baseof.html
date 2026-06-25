@@ -31,12 +31,9 @@
   <link rel="icon" type="image/png" href="/icon.png">
 
   <!-- Tailwind CSS -->
-  {{ $css := resources.Get "css/main.css" }}
-  {{ $css = $css | css.PostCSS }}
-  {{ if hugo.IsProduction }}
-  {{ $css = $css | minify | fingerprint }}
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
   {{ end }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
   <!-- Main JS -->
   {{ $js := resources.Get "js/main.js" }}
