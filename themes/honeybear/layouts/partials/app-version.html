@@ -1,0 +1,6 @@
+{{- $module := "github.com/honeybearfolio/docs" -}}
+{{- range hugo.Deps -}}
+  {{- if eq .Path $module -}}
+    {{- strings.TrimPrefix "v" .Version -}}
+  {{- end -}}
+{{- end -}}
