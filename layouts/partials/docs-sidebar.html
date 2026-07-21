@@ -1,4 +1,7 @@
 {{ $currentPage := . }}
+{{ $navLinkBase := "flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150" }}
+{{ $navLinkActive := "text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40" }}
+{{ $navLinkInactive := "text-bear-700 dark:text-bear-300 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60" }}
 <nav class="docs-sidebar-nav space-y-0.5" aria-label="Documentation">
 
   {{/* Docs home link */}}
@@ -17,47 +20,40 @@
     {{ if .IsSection }}
       {{ $section := . }}
       {{ $isActiveSection := or (eq $currentPage $section) ($currentPage.IsDescendant $section) }}
+      {{ $isSectionPage := eq $currentPage $section }}
 
-      <details class="group/section sidebar-section" {{ if $isActiveSection }}open{{ end }}>
-        <summary class="flex items-center justify-between px-3 py-2 text-[13px] font-semibold uppercase tracking-wider cursor-pointer rounded-lg
-                        text-bear-500 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100 dark:hover:bg-bear-800/60
-                        transition-all duration-150 select-none [&::-webkit-details-marker]:hidden">
-          <span>{{ .Title }}</span>
-          <svg class="w-3.5 h-3.5 shrink-0 opacity-50 transition-transform duration-200 group-open/section:rotate-90" 
-               viewBox="0 0 16 16" fill="currentColor">
-            <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
-          </svg>
-        </summary>
+      {{ if $isActiveSection }}
+        <div class="sidebar-section">
+          <a href="{{ $section.RelPermalink }}"
+             class="{{ $navLinkBase }} {{ if $isSectionPage }}{{ $navLinkActive }}{{ else }}{{ $navLinkInactive }}{{ end }}">
+            {{ $section.Title }}
+          </a>
 
-        <ul class="mt-0.5 ml-3 space-y-0.5 border-l-2 border-bear-200 dark:border-bear-700/60 pl-0">
-          {{/* Section overview */}}
-          <li>
-            <a href="{{ .RelPermalink }}"
-               class="relative block pl-4 pr-3 py-1.5 text-sm rounded-r-lg transition-all duration-150
-                      {{ if eq $currentPage . }}text-honey-700 dark:text-honey-300 font-medium bg-honey-50/80 dark:bg-honey-950/30 before:absolute before:left-[-2px] before:top-1 before:bottom-1 before:w-0.5 before:bg-honey-500 before:rounded-full{{ else }}text-bear-600 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100/80 dark:hover:bg-bear-800/40{{ end }}">
-              Overview
-            </a>
-          </li>
-
-          {{ range .Pages }}
-            {{ if not .IsSection }}
-            <li>
-              <a href="{{ .RelPermalink }}"
-                 class="relative block pl-4 pr-3 py-1.5 text-sm rounded-r-lg transition-all duration-150
-                        {{ if eq $currentPage . }}text-honey-700 dark:text-honey-300 font-medium bg-honey-50/80 dark:bg-honey-950/30 before:absolute before:left-[-2px] before:top-1 before:bottom-1 before:w-0.5 before:bg-honey-500 before:rounded-full{{ else }}text-bear-600 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100/80 dark:hover:bg-bear-800/40{{ end }}">
-                {{ .Title }}
-              </a>
-            </li>
+          <ul class="mt-0.5 ml-3 space-y-0.5 border-l-2 border-bear-200 dark:border-bear-700/60 pl-0">
+            {{ range $section.Pages }}
+              {{ if not .IsSection }}
+              <li>
+                <a href="{{ .RelPermalink }}"
+                   class="relative block pl-4 pr-3 py-1.5 text-sm rounded-r-lg transition-all duration-150
+                          {{ if eq $currentPage . }}text-honey-700 dark:text-honey-300 font-medium bg-honey-50/80 dark:bg-honey-950/30 before:absolute before:left-[-2px] before:top-1 before:bottom-1 before:w-0.5 before:bg-honey-500 before:rounded-full{{ else }}text-bear-600 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100/80 dark:hover:bg-bear-800/40{{ end }}">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
             {{ end }}
-          {{ end }}
-        </ul>
-      </details>
+          </ul>
+        </div>
+      {{ else }}
+        <a href="{{ $section.RelPermalink }}"
+           class="{{ $navLinkBase }} {{ $navLinkInactive }}">
+          {{ $section.Title }}
+        </a>
+      {{ end }}
 
     {{ else }}
       {{/* Top-level page */}}
       <a href="{{ .RelPermalink }}"
-         class="group flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150
-                {{ if eq $currentPage . }}text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40{{ else }}text-bear-700 dark:text-bear-300 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60{{ end }}">
+         class="{{ $navLinkBase }} {{ if eq $currentPage . }}{{ $navLinkActive }}{{ else }}{{ $navLinkInactive }}{{ end }}">
         {{ .Title }}
       </a>
     {{ end }}
