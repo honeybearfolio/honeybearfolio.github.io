@@ -1,4 +1,7 @@
 {{ $currentPage := . }}
+{{ $navLinkBase := "flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150" }}
+{{ $navLinkActive := "text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40" }}
+{{ $navLinkInactive := "text-bear-700 dark:text-bear-300 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60" }}
 <nav class="docs-sidebar-nav space-y-0.5" aria-label="Documentation">
 
   {{/* Docs home link */}}
@@ -22,12 +25,7 @@
       {{ if $isActiveSection }}
         <div class="sidebar-section">
           <a href="{{ $section.RelPermalink }}"
-             class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-semibold uppercase tracking-wider rounded-lg transition-all duration-150
-                    {{ if $isSectionPage }}text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40{{ else }}text-bear-500 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100 dark:hover:bg-bear-800/60{{ end }}">
-            <svg class="w-3.5 h-3.5 shrink-0 opacity-50 rotate-90"
-                 viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-              <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
-            </svg>
+             class="{{ $navLinkBase }} {{ if $isSectionPage }}{{ $navLinkActive }}{{ else }}{{ $navLinkInactive }}{{ end }}">
             {{ $section.Title }}
           </a>
 
@@ -47,12 +45,7 @@
         </div>
       {{ else }}
         <a href="{{ $section.RelPermalink }}"
-           class="flex items-center gap-2.5 px-3 py-2 text-[13px] font-semibold uppercase tracking-wider rounded-lg transition-all duration-150
-                  text-bear-500 dark:text-bear-400 hover:text-bear-900 dark:hover:text-bear-200 hover:bg-bear-100 dark:hover:bg-bear-800/60">
-          <svg class="w-3.5 h-3.5 shrink-0 opacity-50"
-               viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"/>
-          </svg>
+           class="{{ $navLinkBase }} {{ $navLinkInactive }}">
           {{ $section.Title }}
         </a>
       {{ end }}
@@ -60,8 +53,7 @@
     {{ else }}
       {{/* Top-level page */}}
       <a href="{{ .RelPermalink }}"
-         class="group flex items-center gap-2.5 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-150
-                {{ if eq $currentPage . }}text-honey-700 dark:text-honey-400 bg-honey-50 dark:bg-honey-950/40{{ else }}text-bear-700 dark:text-bear-300 hover:text-bear-900 dark:hover:text-bear-100 hover:bg-bear-100 dark:hover:bg-bear-800/60{{ end }}">
+         class="{{ $navLinkBase }} {{ if eq $currentPage . }}{{ $navLinkActive }}{{ else }}{{ $navLinkInactive }}{{ end }}">
         {{ .Title }}
       </a>
     {{ end }}
