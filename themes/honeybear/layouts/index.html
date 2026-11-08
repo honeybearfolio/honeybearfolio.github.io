@@ -9,8 +9,8 @@
           <span class="text-gradient">Your Control</span>
         </h1>
         <p class="text-lg text-bear-600 dark:text-bear-400 mb-8 max-w-lg">
-          A beautiful, local-first personal finance app. Track net worth, manage investments, and plan for FIRE — all
-          while keeping your data private and secure.
+          A local-first personal finance app for the desktop. Accounts, investments, and net worth stay in a SQLite
+          file on your machine.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#download" class="btn-primary">
@@ -29,7 +29,8 @@
       </div>
       <div class="relative animate-slide-up">
         <div class="absolute inset-0 bg-gradient-to-r from-honey-400/20 to-honey-600/20 blur-3xl rounded-full"></div>
-        <img src="/hbf_dashboard_1.JPG" alt="HoneyBear Folio Dashboard"
+        <img src="/dashboard.png"
+          alt="Dashboard with net worth, income versus expenses, and spending by category. Figures are sample data."
           class="relative rounded-2xl shadow-2xl border border-bear-200 dark:border-bear-800">
       </div>
     </div>
@@ -42,8 +43,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-20">
       <h2 class="section-title mb-4">Everything You Need</h2>
-      <p class="section-subtitle max-w-3xl mx-auto">A comprehensive suite of powerful features designed to give you
-        complete visibility and control over your financial life.</p>
+      <p class="section-subtitle max-w-3xl mx-auto">Accounts, investments, assets, and debts, with the charts and
+        tools to see how they add up.</p>
     </div>
 
     <!-- Primary Features -->
@@ -60,9 +61,8 @@
             </div>
             <h3 class="text-xl lg:text-2xl font-bold mb-0">Privacy First, Always</h3>
           </div>
-          <p class="text-honey-100 text-base leading-relaxed mb-6">Your financial data never leaves your device.
-            Everything is stored locally in a SQLite database with no accounts, no cloud sync, and absolutely no
-            tracking.</p>
+          <p class="text-honey-100 text-base leading-relaxed mb-6">Accounts, investments, and net worth stay in a
+            SQLite file on your machine. Nothing is uploaded, and there is no account to create.</p>
           <div class="flex flex-wrap gap-2">
             <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-medium flex items-center">
               <span class="material-symbols-outlined mr-2">hard_disk</span> 100% Local
@@ -87,11 +87,11 @@
               class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-honey-500 to-honey-600 rounded-2xl shadow-lg flex-shrink-0">
               <i class="fas fa-chart-line w-8 h-8 text-white text-[2rem]"></i>
             </div>
-            <h3 class="text-xl lg:text-2xl font-bold text-bear-900 dark:text-bear-100 mb-0">Beautiful Analytics</h3>
+            <h3 class="text-xl lg:text-2xl font-bold text-bear-900 dark:text-bear-100 mb-0">Dashboard</h3>
           </div>
-          <p class="text-bear-600 dark:text-bear-400 text-base leading-relaxed mb-6">Visualize your financial journey
-            with stunning interactive charts. Track net worth evolution, income vs expenses, category breakdowns, and
-            asset allocation at a glance.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-base leading-relaxed mb-6">Arrange cards for net worth, income
+            against expenses, spending by category, how assets are split, and cash flow. Hide accounts, and give any
+            card its own date range and filters.</p>
           <div class="flex flex-wrap gap-2">
             <span
               class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium flex items-center">
@@ -99,11 +99,11 @@
             </span>
             <span
               class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium flex items-center">
-              <span class="material-symbols-outlined mr-2">trending_up</span> Trends
+              <span class="material-symbols-outlined mr-2">dashboard_customize</span> Arrange
             </span>
             <span
               class="px-3 py-1 bg-honey-100 dark:bg-honey-900/30 text-honey-700 dark:text-honey-300 rounded-full text-sm font-medium flex items-center">
-              <span class="material-symbols-outlined mr-2">lightbulb</span> Insights
+              <span class="material-symbols-outlined mr-2">filter_alt</span> Filters
             </span>
           </div>
         </div>
@@ -112,41 +112,83 @@
 
     <!-- Secondary Features Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Portfolio Tracking -->
       <div
-        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
         <div class="relative">
           <div class="flex items-center gap-4 mb-4">
             <div
               class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
               <i class="fas fa-briefcase text-[24px] text-white"></i>
             </div>
-            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Portfolio Tracking</h3>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Investments</h3>
           </div>
-          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Real-time quotes from Yahoo Finance with
-            historical prices and automatic cost basis calculation.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Holdings, cost basis, and gain or loss.
+            Quotes and daily prices come from Yahoo Finance and feed the allocation chart and the performance heatmap.</p>
         </div>
       </div>
 
-      <!-- Multi-Currency -->
       <div
-        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
         <div class="relative">
           <div class="flex items-center gap-4 mb-4">
             <div
               class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
-              <i class="fas fa-globe text-[24px] text-white"></i>
+              <i class="fas fa-exchange-alt text-[24px] text-white"></i>
             </div>
-            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Multi-Currency</h3>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Transactions</h3>
           </div>
-          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Handle accounts in different currencies
-            with automatic exchange rates and seamless conversion.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Cash accounts, transfers, and brokerage
+            trades. A buy or sell records the share leg and the matching cash leg.</p>
         </div>
       </div>
 
-      <!-- FIRE Calculator -->
       <div
-        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-magic text-[24px] text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Rules &amp; Schedules</h3>
+          </div>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Recurring items wait until you apply them.
+            A rule matches a payee by text or by regular expression and fills in the fields you choose.</p>
+        </div>
+      </div>
+
+      <div
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-home text-[24px] text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Assets &amp; Liabilities</h3>
+          </div>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">A value history for a home, a car, or
+            anything else you own, and a balance history for mortgages, loans, and other debts. Both count in net worth.</p>
+        </div>
+      </div>
+
+      <div
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-bullseye text-[24px] text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Goals</h3>
+          </div>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">A target funded by the accounts and
+            investments you link to it. See what is reached, on track, behind, or projected.</p>
+        </div>
+      </div>
+
+      <div
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
         <div class="relative">
           <div class="flex items-center gap-4 mb-4">
             <div
@@ -155,26 +197,65 @@
             </div>
             <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">FIRE Calculator</h3>
           </div>
-          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Plan your path to Financial Independence
-            with projections based on your actual financial data.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Starts from your balances, spending, and
+            savings, then projects a target with a single path and a Monte Carlo range.</p>
         </div>
       </div>
 
-      <!-- Import & Export -->
       <div
-        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700 transition-all duration-300">
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
         <div class="relative">
           <div class="flex items-center gap-4 mb-4">
             <div
               class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
               <i class="fas fa-file-import text-[24px] text-white"></i>
             </div>
-            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Import & Export</h3>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Import &amp; Export</h3>
           </div>
-          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Flexible CSV, JSON, and XLSX imports with
-            preview and mapping. Full database backup support.</p>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Bring in CSV, Excel, or JSON. Map the
+            columns, preview the rows, and export JSON, CSV, Excel, or a PDF report for a period you choose.</p>
         </div>
       </div>
+
+      <div
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-globe text-[24px] text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Multi-Currency</h3>
+          </div>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">Accounts and transactions can use different
+            currencies. Rates come from Yahoo Finance, and any rate can be replaced with one you enter.</p>
+        </div>
+      </div>
+
+      <div
+        class="relative overflow-hidden rounded-xl bg-white dark:bg-bear-800 p-6 shadow-lg border border-bear-200 dark:border-bear-700">
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-honey-500 to-honey-600 rounded-xl shadow-md flex-shrink-0">
+              <i class="fas fa-robot text-[24px] text-white"></i>
+            </div>
+            <h3 class="text-base font-bold text-bear-900 dark:text-bear-100 mb-0">Local Assistant</h3>
+          </div>
+          <p class="text-bear-600 dark:text-bear-400 text-sm leading-relaxed">An optional assistant uses Ollama on your
+            computer. It can look up accounts, transactions, holdings, assets, liabilities, and goals.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-white dark:bg-bear-800 border border-bear-200 dark:border-bear-700 p-8 shadow-lg">
+      <h3 class="text-xl font-bold text-bear-900 dark:text-bear-100 mb-4">Day to day</h3>
+      <ul class="grid md:grid-cols-2 gap-3 text-sm text-bear-600 dark:text-bear-400 leading-relaxed list-disc pl-5">
+        <li>Keep more than one database. Create a file, open an existing one, and switch from the sidebar.</li>
+        <li>Privacy mode masks amounts and leaves the currency symbol visible.</li>
+        <li>The interface is available in English and Spanish.</li>
+        <li>Choose light, dark, high contrast, ink, or follow the system, and scale the type size.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -184,8 +265,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="section-title">See It In Action</h2>
-      <p class="section-subtitle">A clean, modern interface designed to help you understand your finances at a glance.
-      </p>
+      <p class="section-subtitle">Dashboard, investments, and a checking account. Figures in the screenshots are sample
+        data.</p>
     </div>
 
     <div class="relative">
@@ -193,25 +274,32 @@
       <div class="max-w-5xl mx-auto">
         <!-- Main Display -->
         <div class="relative group mb-10">
-          <img id="action-screenshot" src="/hbf_dashboard_1.JPG" alt="HoneyBear Folio Interface"
+          <img id="action-screenshot" src="/dashboard.png"
+            alt="Dashboard with net worth, income versus expenses, and spending by category. Figures are sample data."
             class="relative rounded-2xl shadow-2xl border border-bear-200 dark:border-bear-700 mx-auto w-full transition-opacity duration-300">
         </div>
 
         <!-- Thumbnails -->
         <div class="flex justify-center gap-4 px-4 max-w-4xl mx-auto">
-          <button data-src="/hbf_dashboard_1.JPG"
+          <button data-src="/dashboard.png"
             class="js-screenshot-btn action-thumb flex-1 max-w-[200px] relative rounded-xl overflow-hidden border-2 border-honey-500 ring-2 ring-honey-500/50 transition-all duration-200 cursor-pointer shadow-lg">
-            <img src="/hbf_dashboard_1.JPG" alt="Dashboard" class="w-full h-auto object-cover">
+            <img src="/dashboard.png"
+              alt="Dashboard with net worth, income versus expenses, and spending by category. Figures are sample data."
+              class="w-full h-auto object-cover">
             <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors"></div>
           </button>
-          <button data-src="/hbf_investments_1.JPG"
+          <button data-src="/investments.png"
             class="js-screenshot-btn action-thumb flex-1 max-w-[200px] relative rounded-xl overflow-hidden border-2 border-transparent opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer shadow-md">
-            <img src="/hbf_investments_1.JPG" alt="Investments" class="w-full h-auto object-cover">
+            <img src="/investments.png"
+              alt="Investment dashboard with allocation, a performance heatmap, and holdings. Figures are sample data."
+              class="w-full h-auto object-cover">
             <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors"></div>
           </button>
-          <button data-src="/hbf_acount_1.JPG"
+          <button data-src="/transactions.png"
             class="js-screenshot-btn action-thumb flex-1 max-w-[200px] relative rounded-xl overflow-hidden border-2 border-transparent opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer shadow-md">
-            <img src="/hbf_acount_1.JPG" alt="Accounts" class="w-full h-auto object-cover">
+            <img src="/transactions.png"
+              alt="A checking account with categorized transactions. Figures are sample data."
+              class="w-full h-auto object-cover">
             <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors"></div>
           </button>
         </div>
@@ -230,7 +318,7 @@
         Folio</h2>
       <p class="text-honey-600 dark:text-honey-400 mb-6 font-medium">Latest Version: v{{ $version }}</p>
       <p class="text-xl text-bear-600 dark:text-bear-400 mb-4 max-w-2xl mx-auto">
-        Choose your platform and start managing your finances with complete privacy.
+        Installers for Windows, macOS, and Linux. The running app can check the releases page for a newer version.
       </p>
     </div>
 
