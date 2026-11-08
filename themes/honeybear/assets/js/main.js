@@ -168,6 +168,10 @@ function changeActionScreenshot(btn, src) {
 
         setTimeout(() => {
             mainImg.src = safeHref;
+            const thumb = btn.querySelector('img');
+            if (thumb && thumb.getAttribute('alt')) {
+                mainImg.alt = thumb.getAttribute('alt');
+            }
             mainImg.style.opacity = '1';
         }, 200);
 

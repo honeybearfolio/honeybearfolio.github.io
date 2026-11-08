@@ -1,6 +1,6 @@
 # HoneyBear Folio Website
 
-The official website for [HoneyBear Folio](https://github.com/honeybearfolio/HoneyBear-Folio), a privacy-focused personal finance desktop application.
+The official website for [HoneyBear Folio](https://github.com/honeybearfolio/HoneyBear-Folio), a local-first personal finance app for the desktop.
 
 ## Tech Stack
 

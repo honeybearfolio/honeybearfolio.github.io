@@ -26,13 +26,13 @@ theme = 'honeybear'
 
 [[module.imports]]
   path = "github.com/honeybearfolio/docs"
-  version = "v1.0.2"
+  version = "v1.1.0"
   [[module.imports.mounts]]
     source = "content"
     target = "content/docs"
 
 [params]
-  description = "A privacy-focused, local-first personal finance desktop application"
+  description = "A local-first personal finance app for the desktop"
   author = "HoneyBearFolio"
   github = "https://github.com/honeybearfolio/HoneyBear-Folio"
   buymeacoffee = "https://www.buymeacoffee.com/BernatBC"
@@ -50,6 +50,10 @@ theme = 'honeybear'
     startLevel = 2
     endLevel = 4
     ordered = false
+
+[security]
+  [security.exec]
+    allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^npx$', '^postcss$', '^tailwindcss$']
 
 [menu]
   [[menu.main]]
