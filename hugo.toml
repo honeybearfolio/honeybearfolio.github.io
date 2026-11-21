@@ -26,7 +26,7 @@ theme = 'honeybear'
 
 [[module.imports]]
   path = "github.com/honeybearfolio/docs"
-  version = "v1.1.1"
+  version = "v1.2.0"
   [[module.imports.mounts]]
     source = "content"
     target = "content/docs"
